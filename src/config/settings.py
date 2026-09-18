@@ -2,7 +2,8 @@ from pathlib import Path
 import os
 from urllib.parse import urlparse
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parents[2]
+SOURCE_DIR = BASE_DIR / "src"
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-only-change-me")
 DEBUG = os.getenv("DEBUG", "1").lower() in {"1", "true", "yes"}
 ALLOWED_HOSTS = [host for host in os.getenv("ALLOWED_HOSTS", "*").split(",") if host]
@@ -19,7 +20,7 @@ MIDDLEWARE = [
 ]
 ROOT_URLCONF = "config.urls"
 TEMPLATES = [{"BACKEND": "django.template.backends.django.DjangoTemplates",
-              "DIRS": [BASE_DIR / "templates"], "APP_DIRS": True,
+              "DIRS": [SOURCE_DIR / "templates"], "APP_DIRS": True,
               "OPTIONS": {"context_processors": [
                   "django.template.context_processors.request", "django.contrib.auth.context_processors.auth",
                   "django.contrib.messages.context_processors.messages"]}}]
@@ -51,5 +52,5 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [SOURCE_DIR / "static"]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
