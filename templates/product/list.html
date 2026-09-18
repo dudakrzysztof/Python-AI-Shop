@@ -1,0 +1,1 @@
+<section class="grid">{% for product in products %}<article class="card"><h2><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h2><p>{{ product.description|truncatewords:18 }}</p><strong>${{ product.price }}</strong><p>{{ product.stock }} in stock</p></article>{% empty %}<p>No products yet.</p>{% endfor %}</section>

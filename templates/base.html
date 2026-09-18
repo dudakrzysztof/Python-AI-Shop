@@ -1,0 +1,7 @@
+{% load static %}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Django Shop{% endblock %}</title><link rel="stylesheet" href="{% static 'css/site.css' %}">
+<script src="https://unpkg.com/htmx.org@2.0.4" defer></script></head><body>
+<header><a href="{% url 'home' %}">Django Shop</a><nav><a href="{% url 'product-list' %}">Products</a><a href="{% url 'cart' %}">Cart</a></nav></header>
+<main>{% block content %}{% endblock %}</main><footer><a href="{% url 'subscribe' %}">Newsletter</a></footer>
+</body></html>
