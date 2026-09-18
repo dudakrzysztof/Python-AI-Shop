@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block title %}Welcome{% endblock %}{% block content %}
+<section class="hero"><h1>Good things, simply sold.</h1><p>Thoughtful products with a tiny, transparent shop.</p><a class="button" href="{% url 'product-list' %}">Browse products</a></section>
+{% include "product/list.html" %}{% endblock %}
